@@ -75,5 +75,6 @@ explainer = shap.Explainer(model.named_steps["clf"], X_transformed)
 shap_values = explainer(X_transformed)
 
 st.subheader(f"SHAP Explanation for Row {idx}")
-fig = shap.plots.waterfall(shap_values[idx], show=False)
+shap.plots.waterfall(shap_values[idx], show=False)
+fig = plt.gcf()  # get current figure
 st.pyplot(fig)
